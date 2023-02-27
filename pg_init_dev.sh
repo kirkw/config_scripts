@@ -20,7 +20,7 @@ echo $(date +'%H:%M:%S') Initializing DB
 /home/gitpod/pg_local/bin/pg_ctl -D /home/gitpod/pgdata -l pg.log start
 /home/gitpod/pg_local/bin/psql postgres -c "create database gitpod"
 echo $(date +'%H:%M:%S') Fixing Path
-gp env PATH=$PATH:/home/gitpod/pg_local/bin  > /dev/null
+export PATH=$PATH:/home/gitpod/pg_local/bin  > /dev/null
 echo 'set revert-all-at-newline On' >> ~/.inputrc
 echo '"\e[19~": history-search-backward' >> ~/.inputrc
 echo '"\C-x\C-k": kill-whole-line' >>  ~/.inputrc
