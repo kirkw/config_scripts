@@ -3,9 +3,11 @@ echo $(date +'%H:%M:%S') Apt installing libraries \(30secs\)
 sudo apt-get install -y locate build-essential libreadline-dev zlib1g-dev flex bison libxml2-dev libxslt-dev libssl-dev libxml2-utils xsltproc ccache > /dev/null
 echo "starting the remainder"
 #some keys I cannot live without... LOL
-bind '"\e[19~": history-search-backward'
-bind '"\C-x\C-k": kill-whole-line'
-bind '"\C-k\C-k": kill-whole-line'
+if [ -t 1 ]
+  bind '"\e[19~": history-search-backward'
+  bind '"\C-x\C-k": kill-whole-line'
+  bind '"\C-k\C-k": kill-whole-line'
+fi  
 PS1='\[\033[01;31m\]\D{%H:%M:%S} \[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 echo " PS1='\[\033[01;31m\]\D{%H:%M:%S} \[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '" >> ~/.bashrc
 if [[ ! -z "${patchUrl}" ]]; then echo "PATCH: ${patchUrl}"; wget $patchUrl; patch -p1 < $(ls *.patch); fi
@@ -28,3 +30,6 @@ echo '"\C-k\C-k": kill-whole-line' >>  ~/.inputrc
 alias help='echo "" && echo "Frequent Commands" && echo psql postgres -- Connect to postgres && echo pg_ctl -D /home/gitpod/pgdata stop && echo make && echo make install && echo pg_ctl -D /home/gitpod/pgdata start'
 echo "" && echo Postgres installed. && echo Type help for commands && echo To connect, use: && echo psql postgres && echo ""
 # you reference this file like this: bash <(curl -s https://raw.githubusercontent.com/kirkw/config_scripts/main/pg_init_dev.sh)
+if [ -t 0 ]
+  echo "use ctrl-x,ctrl-r to load your keybindings"
+fi
