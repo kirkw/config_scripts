@@ -25,4 +25,4 @@ echo '"\C-k\C-k": kill-whole-line' >>  ~/.inputrc
 alias help='echo "" && echo "Frequent Commands" && echo psql postgres -- Connect to postgres && echo pg_ctl -D /home/gitpod/pgdata stop && echo make && echo make install && echo pg_ctl -D /home/gitpod/pgdata start'
 echo "" && echo Postgres installed. && echo Type help for commands && echo To connect, use: && echo psql postgres && echo ""
 # you reference this file like this: bash <(curl -s https://raw.githubusercontent.com/kirkw/config_scripts/main/pg_init_dev.sh)
-echo "use ctrl-x,ctrl-r to load your keybindings"
+echo "use bind -f ~/.inputrc to load your keybindings"
