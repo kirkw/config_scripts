@@ -3,7 +3,6 @@ echo $(date +'%H:%M:%S') Apt installing libraries \(30secs\)
 sudo apt-get install -y locate build-essential libreadline-dev zlib1g-dev flex bison libxml2-dev libxslt-dev libssl-dev libxml2-utils xsltproc ccache > /dev/null
 echo "starting the remainder"
 #some keys I cannot live without... LOL
-set -o emacs
 bind '"\e[19~": history-search-backward'
 bind '"\C-x\C-k": kill-whole-line'
 bind '"\C-k\C-k": kill-whole-line'
