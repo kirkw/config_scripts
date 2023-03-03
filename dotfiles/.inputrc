@@ -1,0 +1,12 @@
+# My custom inputrc for gitpod environments
+
+set revert-all-at-newline On
+
+$if mode=emacs
+
+"\C-x\C-k": kill-whole-line
+"\C-k\C-k": kill-whole-line
+
+$endif
+
+"\e[19~": history-search-backward
