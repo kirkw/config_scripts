@@ -1,0 +1,9 @@
+# This is for customizing my various commands!
+
+echo Hello Gitpod
+echo Here is my .bash_aliases dotfile
+
+alias help='echo "" && echo "Frequent Commands" && echo psql postgres -- Connect to postgres && echo pg_ctl -D /home/gitpod/pgdata stop && echo make && echo make install && echo pg_ctl -D /home/gitpod/pgdata start'
+echo "" && echo Postgres installed. && echo Type help for commands && echo To connect, use: && echo psql postgres && echo ""
+
+export PS1='\[\033[01;33m\]\D{%H:%M:%S} \[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
